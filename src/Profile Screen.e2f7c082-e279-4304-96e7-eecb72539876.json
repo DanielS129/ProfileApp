@@ -57,18 +57,48 @@
     },
     "children": [
         {
+            "type": "AdMobBanner",
+            "label": "AdMob Banner",
+            "translatedName": "AdMob Banner",
+            "properties": {
+                "Visible": true,
+                "AdUnitID": "ca-app-pub-3940256099942544/6300978111",
+                "AdUnitID_iOS": "ca-app-pub-3940256099942544/6300978111",
+                "TestMode": true,
+                "Width": 375,
+                "Height": 32,
+                "X": 0,
+                "ParentId": "e2f7c082-e279-4304-96e7-eecb72539876",
+                "Y": 633,
+                "RelativeX": 0,
+                "RelativeY": 633,
+                "position": "absolute",
+                "edgeOffsets": 633,
+                "style": {
+                    "position": "absolute",
+                    "left": "23.866666666666667%",
+                    "top": "88.31990254872564%",
+                    "display": "flex"
+                }
+            },
+            "children": [],
+            "id": "e9d1f04a-6301-475c-8641-541a20881eb1",
+            "thunkableVersion": 446,
+            "name": "AdMob_Banner2"
+        },
+        {
             "type": "Image",
             "translatedName": "Image",
             "properties": {
                 "Picture": "danielgram-high-resolution-logo-black-transparent.png",
                 "resizeMode": "stretch",
-                "Height": 84,
-                "Width": 170,
+                "Height": 78,
+                "Width": 163,
                 "Visible": true,
-                "X": 96,
-                "Y": 581,
-                "RelativeX": 96,
-                "RelativeY": 581,
+                "X": 106,
+                "Y": 555,
+                "RelativeX": 106,
+                "RelativeY": 555,
                 "ResizeMode": "STRETCH",
                 "style": {
                     "marginTop": 0,
@@ -95,7 +125,7 @@
                 "capInsets": {},
                 "ParentId": "e2f7c082-e279-4304-96e7-eecb72539876",
                 "position": "absolute",
-                "edgeOffsets": 581
+                "edgeOffsets": 555
             },
             "children": [],
             "id": "2583c3c1-9b31-43b7-ae0a-57960ba720a7",
