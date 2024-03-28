@@ -8,7 +8,8 @@
                     width: 100%;
                     height: 200px;
                     background: navy url('danielgram-high-resolution-logo-black-transparent.png') no-repeat right center; 
-                    background-size: cover;                }
+                    background-size: cover;
+                }
             </style>
         </head>
         <body>
@@ -40,18 +41,17 @@
 
                 var database = firebase.database();
 
-
                 // Get the profiles
                 database.ref('/profiles').once('value').then(function(snapshot) {
-                   var profiles = snapshot.val();
-                   var profilesDiv = document.getElementById('profiles');
+                    var profiles = snapshot.val();
+                    var profilesDiv = document.getElementById('profiles');
 
                     // Display the first two profiles
                    for (var i = 0; i < 2; i++) {
-                       var profile = profiles[i];
-                      var profileDiv = document.createElement('div');
-                      profileDiv.textContent = profile.name + ', ' + profile.age;
-                       profilesDiv.appendChild(profileDiv);
+                        var profile = profiles[i];
+                        var profileDiv = document.createElement('div');
+                        profileDiv.textContent = profile.name + ', ' + profile.age;
+                        profilesDiv.appendChild(profileDiv);
                     }
                 });
             </script>
