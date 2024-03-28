@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>My Website</title>
+            <style>
+                /* Add your CSS here */
+                #banner {
+                    width: 100%;
+                    height: 200px;
+                    background: url('danielgram-high-resolution-logo-black-transparent.png') no-repeat center center; 
+                    background-size: cover;
+                }
+            </style>
+        </head>
+        <body>
+            <div id="banner"></div>
+            <div id="profiles">
+                <!-- Profiles will be loaded here -->
+            </div>
+            <div id="app">
+                <!-- Your app will be embedded here -->
+            </div>
+
+            <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+            <script>
+                // Your Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "your-api-key",
+                    authDomain: "your-auth-domain",
+                    databaseURL: "your-database-url",
+                    projectId: "your-project-id",
+                    storageBucket: "your-storage-bucket",
+                    messagingSenderId: "your-messaging-sender-id",
+                    appId: "your-app-id"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+
+                var database = firebase.database();
+
+                // Get the profiles
+                database.ref('/profiles').once('value').then(function(snapshot) {
+                   var profiles = snapshot.val();
+                   var profilesDiv = document.getElementById('profiles');
+
+                    // Display the first two profiles
+                   for (var i = 0; i < 2; i++) {
+                       var profile = profiles[i];
+                      var profileDiv = document.createElement('div');
+                      profileDiv.textContent = profile.name + ', ' + profile.age;
+                       profilesDiv.appendChild(profileDiv);
+                    }
+                });
+            </script>
+        </body>
+    </html>
