@@ -36,10 +36,11 @@
                     appId: "1:189271176959:web:f99d424e7b52223151beca"
                 };
                 // Initialize Firebase
-                firebase.initializeApp(firebaseConfig);
-                const analytics = getAnalytics(app);
+                var app = firebase.initializeApp(firebaseConfig);
+                const analytics = firebase.analytics(app);
 
                 var database = firebase.database();
+
 
                 // Get the profiles
                 database.ref('/profiles').once('value').then(function(snapshot) {
