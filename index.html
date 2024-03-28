@@ -26,16 +26,17 @@
             <script>
                 // Your Firebase configuration
                 var firebaseConfig = {
-                    apiKey: "your-api-key",
-                    authDomain: "your-auth-domain",
-                    databaseURL: "your-database-url",
-                    projectId: "your-project-id",
-                    storageBucket: "your-storage-bucket",
-                    messagingSenderId: "your-messaging-sender-id",
-                    appId: "your-app-id"
+                    apiKey: "AIzaSyC8NpnlCy84ZDpdRQbH4HRBv1BfmY8OyEk",
+                    authDomain: "profileappintro.firebaseapp.com",
+                    databaseURL: "https://profileappintro-default-rtdb.firebaseio.com",
+                    projectId: "profileappintro",
+                    storageBucket: "profileappintro.appspot.com",
+                    messagingSenderId: "189271176959",
+                    appId: "1:189271176959:web:f99d424e7b52223151beca"
                 };
                 // Initialize Firebase
-                firebase.initializeApp(firebaseConfig);
+                const app = initializeApp(firebaseConfig);
+                const analytics = getAnalytics(app);
 
                 var database = firebase.database();
 
