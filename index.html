@@ -69,17 +69,31 @@
 
                 // Get the profiles
                 database.ref('/profiles').once('value').then(function(snapshot) {
-                    var profiles = snapshot.val();
-                    var profilesDiv = document.getElementById('profiles');
-
-                    // Display the first two profiles
-                   for (var i = 0; i < 2; i++) {
-                        var profile = profiles[i];
-                        var profileDiv = document.createElement('div');
-                        profileDiv.textContent = profile.name + ', ' + profile.age;
-                        profilesDiv.appendChild(profileDiv);
-                    }
-                });
+                var profiles = snapshot.val();
+                var profilesDiv = document.getElementById('profiles');
+                
+                // Clear any existing content in the profilesDiv
+                profilesDiv.innerHTML = '';
+                
+                // Display the profiles
+                for (var i = 0; i < profiles.length; i++) {
+                    var profile = profiles[i];
+                    var profileRow = document.createElement('tr');
+                    var nameCell = document.createElement('td');
+                    var imageCell = document.createElement('td');
+                    var profileImage = document.createElement('img');
+                
+                    nameCell.textContent = profile.name;
+                    profileImage.src = profile.image;
+                    profileImage.alt = profile.name + "'s Profile";
+                    profileImage.classList.add('profile-image');
+            
+                    imageCell.appendChild(profileImage);
+                    profileRow.appendChild(nameCell);
+                    profileRow.appendChild(imageCell);
+                    profilesDiv.appendChild(profileRow);
+                }
+            });
             </script>
         </body>
     </html>
