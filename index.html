@@ -77,20 +77,34 @@
                     // Clear any existing content in the profilesDiv
                     profilesDiv.innerHTML = '';
                     
-                    // Display the profiles
-                    for (var userId in users) {
-                        var user = users[userId];
-                        console.log(user); // Log each user to the console
+                // Display the profiles
+                for (var userId in users) {
+                    var user = users[userId];
+                    console.log(user); // Log each user to the console
 
-                        var profileRow = document.createElement('tr');
-                        var nameCell = document.createElement('td');
-                        var imageCell = document.createElement('td');
-                        var profileImage = document.createElement('img');
-                        
-                        // ...
-                    }
+                    var profileRow = document.createElement('tr');
+                    var nameCell = document.createElement('td');
+                    var imageCell = document.createElement('td');
+                    var profileImage = document.createElement('img');
+
+                    nameCell.textContent = user.name;
+                    profileImage.src = user.image;
+                    profileImage.alt = user.name + "'s Profile";
+                    profileImage.classList.add('profile-image');
+
+                    imageCell.appendChild(profileImage);
+                    profileRow.appendChild(nameCell);
+                    profileRow.appendChild(imageCell);
+
+                    // Append the new row to the 'profiles' table body
+                    profilesDiv.appendChild(profileRow);
+                }
                 }).catch(function(error) {
                     console.error(error); // Log any errors to the console
+                });
+            </script>
+        </body>
+    </html>
                 });
             </script>
         </body>
