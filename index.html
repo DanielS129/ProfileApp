@@ -7,16 +7,42 @@
                 #banner {
                     width: 100%;
                     height: 200px;
-                    background: navy url('danielgram-high-resolution-logo-black-transparent.png') no-repeat right top; 
-                    background-size: contain;
+                    background: navy url('danielgram-high-resolution-logo-black-transparent.png') no-repeat right center; 
+                    background-size: cover;
+                }
+                /* Optional: Add some basic styling to the table */
+                table {
+                    border-collapse: collapse;
+                    width: 100%;
+                }
+                th, td {
+                    border: 1px solid #ddd;
+                    padding: 8px;
+                    text-align: left;
+                }
+                th {
+                    background-color: #f2f2f2;
+                }
+                .profile-image {
+                    max-width: 50px; /* Adjust the image size as needed */
+                    max-height: 50px;
                 }
             </style>
         </head>
         <body>
             <div id="banner"></div>
-            <div id="profiles">
-                <!-- Profiles will be loaded here -->
-            </div>
+            <h1>User Profiles</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Profile Picture</th>
+                        </tr>
+                    </thead>
+                    <tbody id="profiles">
+                        <!-- User profiles will be dynamically added here -->
+                    </tbody>
+                </table>
             <div id="app">
                 <iframe src="https://thunkable.site/w/OhDSQ3ujDi1_HXxwT2wUa" title="Profile App for Thunkable" height = 1000 width = 500></iframe>
             </div>
