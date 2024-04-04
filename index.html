@@ -7,45 +7,19 @@
                 #banner {
                     width: 100%;
                     height: 200px;
-                    background: navy url('danielgram-high-resolution-logo-black-transparent.png') no-repeat right center; 
-                    background-size: cover;
-                }
-                /* Optional: Add some basic styling to the table */
-                table {
-                    border-collapse: collapse;
-                    width: 100%;
-                }
-                th, td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: left;
-                }
-                th {
-                    background-color: #f2f2f2;
-                }
-                .profile-image {
-                    max-width: 50px; /* Adjust the image size as needed */
-                    max-height: 50px;
+                    background: navy url('danielgram-high-resolution-logo-black-transparent.png') no-repeat right top; 
+                    background-size: contain;
                 }
             </style>
         </head>
         <body>
             <div id="banner"></div>
-            <h1>User Profiles</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Profile Picture</th>
-                        </tr>
-                    </thead>
-                    <tbody id="profiles">
-                        <!-- User profiles will be dynamically added here -->
-                    </tbody>
-                </table>
-<!--             <div id="app">
+            <div id="profiles">
+                <!-- Profiles will be loaded here -->
+            </div>
+            <div id="app">
                 <iframe src="https://thunkable.site/w/OhDSQ3ujDi1_HXxwT2wUa" title="Profile App for Thunkable" height = 1000 width = 500></iframe>
-            </div> -->
+            </div>
 
             <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
@@ -68,30 +42,16 @@
                 var database = firebase.database();
 
                 // Get the profiles
-                database.ref('/').once('value').then(function(snapshot) {
-                    var users = snapshot.val();
+                database.ref('/profiles').once('value').then(function(snapshot) {
+                    var profiles = snapshot.val();
                     var profilesDiv = document.getElementById('profiles');
-                    
-                    // Clear any existing content in the profilesDiv
-                    profilesDiv.innerHTML = '';
-                    
-                    // Display the profiles
-                    for (var userId in users) {
-                        var user = users[userId];
-                        var profileRow = document.createElement('tr');
-                        var nameCell = document.createElement('td');
-                        var imageCell = document.createElement('td');
-                        var profileImage = document.createElement('img');
-                    
-                        nameCell.textContent = user.name;
-                        profileImage.src = user.image;
-                        profileImage.alt = user.name + "'s Profile";
-                        profileImage.classList.add('profile-image');
 
-                        imageCell.appendChild(profileImage);
-                        profileRow.appendChild(nameCell);
-                        profileRow.appendChild(imageCell);
-                        profilesDiv.appendChild(profileRow);
+                    // Display the first two profiles
+                   for (var i = 0; i < 2; i++) {
+                        var profile = profiles[i];
+                        var profileDiv = document.createElement('div');
+                        profileDiv.textContent = profile.name + ', ' + profile.age;
+                        profilesDiv.appendChild(profileDiv);
                     }
                 });
             </script>
